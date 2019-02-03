@@ -9,7 +9,7 @@ namespace ITEC491_IndividualProject.Workflow
 	{
 		public static void Menu()
 		{
-			List<string> menuItems = new List<string> { "1. Display All Performances for an Employee", "2. Display All Performances Ordered By Date (Bubble Sort)", "3. Display All Employee Performances Ordered By Work Fullfillment Rate", "4. Exit" };
+			List<string> menuItems = new List<string> { "1. Display All Performances for an Employee", "2. Display All Performances Ordered By Date (Bubble Sort)", "3. Display All Employee Performances Ordered By Work Fullfillment Rate", "4. Back" };
 			const int maxMenuItems = 4;
 			int selector = 0;
 			bool good = false;
@@ -17,7 +17,7 @@ namespace ITEC491_IndividualProject.Workflow
 			{
 				Console.Clear();
 				Display.DrawTitle("Performances Menu");
-				Display.DrawMenu(maxMenuItems, menuItems);
+				Display.DrawSubMenu(maxMenuItems, menuItems);
 				good = int.TryParse(Console.ReadLine(), out selector);
 				if (good)
 				{

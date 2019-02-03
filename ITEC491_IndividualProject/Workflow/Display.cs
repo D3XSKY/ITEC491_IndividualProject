@@ -50,5 +50,31 @@ namespace ITEC491_IndividualProject.Workflow
 			Console.Write("or {0} for exit\n", maxitems);
 			DrawStarLine();
 		}
+		public static void DrawSubMenu(int maxitems, List<string> menuItems)
+		{
+			DrawStarLine();
+			foreach (var item in menuItems)
+			{
+				Console.WriteLine(item);
+			}
+			DrawStarLine();
+			Console.Write("Make your choice: ");
+			for (int i = 0; i < menuItems.Count; i++)
+			{
+				if (i == 0)
+				{
+					Console.Write("type " + 1 + ",");
+				}
+				else
+				{
+					if (i != menuItems.Count - 1)
+					{
+						Console.Write(" " + (i + 1) + " ");
+					}
+				}
+			}
+			Console.Write("or {0} to go back\n", maxitems);
+			DrawStarLine();
+		}
 	}
 }

@@ -12,7 +12,7 @@ namespace ITEC491_IndividualProject.Workflow
 	{
 		public static void Menu()
 		{
-			List<string> menuItems = new List<string> { "1. Add Department", "2. Display Departments", "3. Exit" };
+			List<string> menuItems = new List<string> { "1. Add Department", "2. Display Departments", "3. Back" };
 			const int maxMenuItems = 3;
 			int selector = 0;
 			bool good = false;
@@ -20,7 +20,7 @@ namespace ITEC491_IndividualProject.Workflow
 			{
 				Console.Clear();
 				Display.DrawTitle("Department Menu");
-				Display.DrawMenu(maxMenuItems, menuItems);
+				Display.DrawSubMenu(maxMenuItems, menuItems);
 				good = int.TryParse(Console.ReadLine(), out selector);
 				if (good)
 				{
