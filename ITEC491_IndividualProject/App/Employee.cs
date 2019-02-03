@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace ITEC491_IndividualProject.App
 {
@@ -31,7 +30,7 @@ namespace ITEC491_IndividualProject.App
 			departmentId = 0;
 			contractLength = 0;
 		}
-		public Employee(int id, string firstName, string lastName, DateTime dateOfBirth, int employeeType,int departmentId, int contractLength, List<Performance> employeePerformances)
+		public Employee(int id, string firstName, string lastName, DateTime dateOfBirth, int employeeType, int departmentId, int contractLength, List<Performance> employeePerformances)
 		{
 			this.id = id;
 			this.firstName = firstName;
@@ -47,44 +46,44 @@ namespace ITEC491_IndividualProject.App
 		/// </summary>
 		public int Id
 		{
-			get { return id; }
-			set { id = value; }
+			get => id;
+			set => id = value;
 		}
 		public string FirstName
 		{
-			get { return firstName; }
-			set { firstName = value; }
+			get => firstName;
+			set => firstName = value;
 		}
 		public string LastName
 		{
-			get { return lastName; }
-			set { lastName = value; }
+			get => lastName;
+			set => lastName = value;
 		}
 		public DateTime DateOfBirth
 		{
-			get { return dateOfBirth; }
-			set { dateOfBirth = value; }
+			get => dateOfBirth;
+			set => dateOfBirth = value;
 
 		}
 		public int EmployeeType
 		{
-			get { return employeeType; }
-			set { employeeType = value; }
+			get => employeeType;
+			set => employeeType = value;
 		}
 		public int DepartmentId
 		{
-			get { return departmentId; }
-			set { departmentId = value; }
+			get => departmentId;
+			set => departmentId = value;
 		}
 		public int ContractLength
 		{
-			get { return contractLength; }
-			set { contractLength = value; }
+			get => contractLength;
+			set => contractLength = value;
 		}
 		public List<Performance> EmployeePerformances
 		{
-			get { return employeePerformances; }
-			set { employeePerformances = value; }
+			get => employeePerformances;
+			set => employeePerformances = value;
 		}
 	}
 }

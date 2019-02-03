@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace ITEC491_IndividualProject.App
 {
@@ -26,7 +24,7 @@ namespace ITEC491_IndividualProject.App
 			employeeId = 0;
 			customerReview = false;
 		}
-		public Performance(string workDescription, double workFullfillmentRate, DateTime performanceDate,int employeeId,bool customerReview)
+		public Performance(string workDescription, double workFullfillmentRate, DateTime performanceDate, int employeeId, bool customerReview)
 		{
 			this.workDescription = workDescription;
 			this.workFullfillmentRate = workFullfillmentRate;
@@ -39,29 +37,29 @@ namespace ITEC491_IndividualProject.App
 		/// </summary>
 		public string WorkDescription
 		{
-			get { return workDescription; }
-			set { workDescription = value; }
+			get => workDescription;
+			set => workDescription = value;
 		}
 		public double WorkFullfillmentRate
 		{
-			get { return workFullfillmentRate; }
-			set { workFullfillmentRate = value; }
+			get => workFullfillmentRate;
+			set => workFullfillmentRate = value;
 		}
 		public DateTime PerformanceDate
 		{
-			get { return performanceDate; }
-			set { performanceDate = value; }
+			get => performanceDate;
+			set => performanceDate = value;
 
 		}
 		public int EmployeeId
 		{
-			get { return employeeId; }
-			set { employeeId = value; }
+			get => employeeId;
+			set => employeeId = value;
 		}
 		public bool CustomerReview
 		{
-			get { return customerReview; }
-			set { customerReview = value; }
+			get => customerReview;
+			set => customerReview = value;
 		}
 	}
 }

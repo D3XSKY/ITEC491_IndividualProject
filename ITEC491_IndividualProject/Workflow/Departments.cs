@@ -1,7 +1,6 @@
 ﻿using ITEC491_IndividualProject.App;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace ITEC491_IndividualProject.Workflow
 {
@@ -10,6 +9,9 @@ namespace ITEC491_IndividualProject.Workflow
 	/// </summary>
 	public static class Departments
 	{
+		/// <summary>
+		/// Method that displays menu of department options, if user selects 1 on main menu. 
+		/// </summary>
 		public static void Menu()
 		{
 			List<string> menuItems = new List<string> { "1. Add Department", "2. Display Departments", "3. Back" };
@@ -49,19 +51,24 @@ namespace ITEC491_IndividualProject.Workflow
 			}
 			AppMenu.MainMenu();
 		}
-
+		/// <summary>
+		/// Method to display all departments and some or all of their properties
+		/// </summary>
 		private static void DisplayDepartments()
 		{
 			foreach (var department in Init.App.departments)
 			{
 				Display.DrawDashLine();
-				Console.WriteLine("Department Name:\t"+ department.DepartmentName);
+				Console.WriteLine("Department Name:\t" + department.DepartmentName);
 				Console.WriteLine("Department Type:\t" + (DepartmentTypes)department.DepartmentType);
 				Console.WriteLine("Department Description:\t" + department.DepartmentDescription);
 				Display.DrawDashLine();
 				Console.WriteLine("\n");
 			}
 		}
+		/// <summary>
+		/// Method to display add new department.
+		/// </summary>
 		public static void Add()
 		{
 			Department d = new Department();
@@ -83,13 +90,15 @@ namespace ITEC491_IndividualProject.Workflow
 			System.Threading.Thread.Sleep(1000);
 			Menu();
 		}
-
+		/// <summary>
+		/// Method to display all departments types while user is adding new department, this way user will set department type.
+		/// </summary>
 		public static void DisplayDepartmentTypes()
 		{
 			Console.WriteLine("\nEnter department ID number");
 			for (int i = 1; i <= Enum.GetValues(typeof(DepartmentTypes)).Length; i++)
 			{
-				Console.WriteLine("Id: " + i+ " ("+ (DepartmentTypes)i+")");
+				Console.WriteLine("Id: " + i + " (" + (DepartmentTypes)i + ")");
 			}
 		}
 	}

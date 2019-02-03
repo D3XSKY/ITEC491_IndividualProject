@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ITEC491_IndividualProject.App
+﻿namespace ITEC491_IndividualProject.App
 {
 	/// <summary>
 	/// Department class that contains department properties
@@ -33,18 +29,18 @@ namespace ITEC491_IndividualProject.App
 		/// </summary>
 		public string DepartmentName
 		{
-			get { return departmentName; }
-			set { departmentName = value; }
+			get => departmentName;
+			set => departmentName = value;
 		}
 		public int DepartmentType
 		{
-			get { return departmentType; }
-			set { departmentType = value; }
+			get => departmentType;
+			set => departmentType = value;
 		}
 		public string DepartmentDescription
 		{
-			get { return departmentDescription; }
-			set { departmentDescription = value; }
+			get => departmentDescription;
+			set => departmentDescription = value;
 		}
 	}
 }

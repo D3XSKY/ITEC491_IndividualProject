@@ -1,15 +1,23 @@
 ﻿using ITEC491_IndividualProject.App;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace ITEC491_IndividualProject.Workflow
 {
+	/// <summary>
+	/// Class that contains methods for displaying employee menu and handling all further logic such as: 
+	/// Displaying and adding of employees
+	/// Adding performance record to specific employee
+	/// Displaying Employee performances ( this one contains sub-menu with more options)
+	/// </summary>
 	public static class Employees
 	{
+		/// <summary>
+		/// Method that displays menu of employees options, if user selects 2 on main menu. 
+		/// </summary>
 		public static void Menu()
 		{
-			List<string> menuItems = new List<string> {"1. Display All Employees","2. Add Employee", "3. Add Performance Record for an Employee", "4. Display Employee Performances", "5. Back" };
+			List<string> menuItems = new List<string> { "1. Display All Employees", "2. Add Employee", "3. Add Performance Record for an Employee", "4. Display Employee Performances", "5. Back" };
 			const int maxMenuItems = 5;
 			int selector = 0;
 			bool good = false;
@@ -53,7 +61,9 @@ namespace ITEC491_IndividualProject.Workflow
 			}
 			AppMenu.MainMenu();
 		}
-
+		/// <summary>
+		/// Method for displaying all of the employees and their properties.
+		/// </summary>
 		private static void DisplayAllEmployees()
 		{
 			foreach (var employee in Init.App.employees)
@@ -69,7 +79,9 @@ namespace ITEC491_IndividualProject.Workflow
 				Console.WriteLine("\n");
 			}
 		}
-
+		/// <summary>
+		/// Method for adding new employee. User enters all of the properties.
+		/// </summary>
 		public static void Add()
 		{
 			Employee e = new Employee
@@ -107,6 +119,9 @@ namespace ITEC491_IndividualProject.Workflow
 			System.Threading.Thread.Sleep(1000);
 			Menu();
 		}
+		/// <summary>
+		/// Method for adding performance track record to specific employee. User selects employee and then fill info.
+		/// </summary>
 		public static void Performance()
 		{
 			Employee e = ChooseEmployee();
@@ -126,7 +141,7 @@ namespace ITEC491_IndividualProject.Workflow
 			p.EmployeeId = e.Id;
 			Console.WriteLine("Enter if employee received customer review (yes/no):\t");
 			string cReview = Console.ReadLine();
-			if (cReview == "yes") 
+			if (cReview == "yes")
 			{
 				p.CustomerReview = true;
 			}
@@ -136,19 +151,22 @@ namespace ITEC491_IndividualProject.Workflow
 			}
 			Display.DrawDashLine();
 			Console.WriteLine("\n");
-			Init.App.employees[e.Id-1].EmployeePerformances.Add(p);
+			Init.App.employees[e.Id - 1].EmployeePerformances.Add(p);
 			Console.WriteLine("Work performance successfully added for " + e.FirstName + " " + e.LastName);
 			System.Threading.Thread.Sleep(1000);
 			Menu();
 		}
-
+		/// <summary>
+		/// Method that displays some kind of short table of employees for user to select, this is displayed when adding performance record to an employee.
+		/// </summary>
+		/// <returns></returns>
 		private static Employee ChooseEmployee()
 		{
 			Employee chosen = new Employee();
 			Console.WriteLine("Choose Employee for which you want to add performance:");
 			foreach (var employee in Init.App.employees)
 			{
-				Console.WriteLine("["+employee.Id+"] " + employee.FirstName + " " + employee.LastName);
+				Console.WriteLine("[" + employee.Id + "] " + employee.FirstName + " " + employee.LastName);
 			}
 			Console.WriteLine("Enter number: ");
 			string empId = Console.ReadLine();
@@ -158,7 +176,9 @@ namespace ITEC491_IndividualProject.Workflow
 			return chosen;
 
 		}
-
+		/// <summary>
+		/// Just a method for displaying all available employee types when user is adding employee.
+		/// </summary>
 		public static void DisplayEmployeeTypes()
 		{
 			Console.WriteLine("\nEnter employee type reference number");

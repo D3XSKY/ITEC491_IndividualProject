@@ -3,7 +3,7 @@
 namespace ITEC491_IndividualProject.Workflow
 {
 	/// <summary>
-	/// Class that contains methods for application working context
+	/// Class that calls methods for starting and stopping application
 	/// </summary>
 	public static class AppHandler
 	{

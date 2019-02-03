@@ -1,7 +1,5 @@
 ﻿using ITEC491_IndividualProject.App;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace ITEC491_IndividualProject.Init
 {

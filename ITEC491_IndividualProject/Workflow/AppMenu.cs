@@ -52,10 +52,7 @@ namespace ITEC491_IndividualProject.Workflow
 			}
 			AppHandler.Close();
 		}
-
-
-
-		}
 	}
+}
 
 

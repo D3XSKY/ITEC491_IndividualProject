@@ -1,12 +1,18 @@
 ﻿using ITEC491_IndividualProject.App;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace ITEC491_IndividualProject.Workflow
 {
+	/// <summary>
+	/// Class that handles all the performances actions. 
+	/// This is where I  implemented bubble sort and selection sort algorithms.
+	/// </summary>
 	public static class Performances
 	{
+		/// <summary>
+		/// Displays performances menu as well as calls other display methods for performances.
+		/// </summary>
 		public static void Menu()
 		{
 			List<string> menuItems = new List<string> { "1. Display All Performances for an Employee", "2. Display All Performances Ordered By Date (Bubble Sort)", "3. Display All Employee Performances Ordered By Work Fullfillment Rate", "4. Back" };
@@ -50,12 +56,13 @@ namespace ITEC491_IndividualProject.Workflow
 			}
 			Employees.Menu();
 		}
-
+		/// <summary>
+		/// Method that displays all performances ( from all employees) sorted from highest to lowest work fullfillment rate. (Selection sort)
+		/// </summary>
 		private static void DisplayAllPerformancesByWfr()
-		{      
+		{
 			// make a list of all employment performances and sort the list according to the work fullfillment rate from the highest to the lowest
 			List<Performance> allPerformances = new List<Performance>();
-
 			foreach (var employee in Init.App.employees)
 			{
 				foreach (var performance in employee.EmployeePerformances)
@@ -80,10 +87,7 @@ namespace ITEC491_IndividualProject.Workflow
 		/// </summary>
 		private static void DisplayAllPerformancesByDate()
 		{
-	
-
 			List<Performance> allPerformances = new List<Performance>();
-
 			foreach (var employee in Init.App.employees)
 			{
 				foreach (var performance in employee.EmployeePerformances)
@@ -104,19 +108,24 @@ namespace ITEC491_IndividualProject.Workflow
 				Console.WriteLine("Work Description: " + (performance.CustomerReview ? "Yes" : "No"));
 			}
 		}
-
-
+		/// <summary>
+		/// Method to return employee's full name for the purpose of displaying performances 
+		/// </summary>
+		/// <param name="employeeId">Id of the employee</param>
+		/// <returns></returns>
 		private static string GetEmployeeFullName(int employeeId)
 		{
 			Employee e = new Employee();
 			e = Init.App.employees[employeeId - 1];
 			return e.FirstName + " " + e.LastName;
 		}
-
+		/// <summary>
+		/// Method to display all performances tracking records for specific employee.
+		/// </summary>
 		private static void DisplayAllPerformances()
 		{
+			/// fetching employee that user has chosen and displaying all of his tracking performance records
 			Employee e = ChooseEmployee();
-
 			Console.WriteLine("Records for " + e.FirstName + " " + e.LastName);
 			Console.WriteLine("\n");
 			foreach (var performance in e.EmployeePerformances)
@@ -128,6 +137,10 @@ namespace ITEC491_IndividualProject.Workflow
 				Display.DrawDashLine();
 			}
 		}
+		/// <summary>
+		/// Method that handles choosing the employee for which performance records will be displayed.
+		/// </summary>
+		/// <returns>Object of the employee for which work performance records will be displayed.</returns>
 		private static Employee ChooseEmployee()
 		{
 			Employee chosen = new Employee();
@@ -142,8 +155,12 @@ namespace ITEC491_IndividualProject.Workflow
 			chosen = Init.App.employees[employeeId - 1];
 			Display.DrawStarLine();
 			return chosen;
-
 		}
+		/// <summary>
+		/// Method that does the bubble sorting on the list of performances which is passed.
+		/// </summary>
+		/// <param name="performances">List of performances</param>
+		/// <returns>bubble sorted list of performances</returns>
 		private static List<Performance> BubbleSort(List<Performance> performances)
 		{
 			// bubble sort
@@ -162,6 +179,7 @@ namespace ITEC491_IndividualProject.Workflow
 			return performances;
 		}
 		/// <summary>
+		/// Selection sort implementation
 		/// https://www.w3resource.com/csharp-exercises/searching-and-sorting-algorithm/searching-and-sorting-algorithm-exercise-11.php
 		/// </summary>
 		/// <param name="performances"></param>
@@ -180,11 +198,16 @@ namespace ITEC491_IndividualProject.Workflow
 						smallest = index;
 					}
 				}
-				Swap(performances,i, smallest);
-
+				Swap(performances, i, smallest);
 			}
 			return performances;
 		}
+		/// <summary>
+		/// Helper method for selection sort. It handles the swapping.
+		/// </summary>
+		/// <param name="performances"></param>
+		/// <param name="first"></param>
+		/// <param name="second"></param>
 		private static void Swap(List<Performance> performances, int first, int second)
 		{
 			Performance temporary = performances[first];
